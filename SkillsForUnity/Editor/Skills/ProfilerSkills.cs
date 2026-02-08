@@ -48,7 +48,11 @@ namespace UnitySkills
                 renderTime = UnityStats.renderTime,
                 triangles = UnityStats.triangles,
                 vertices = UnityStats.vertices,
+                #if UNITY_6000_0_OR_NEWER
+                batches = UnityStats.staticBatches + UnityStats.dynamicBatches + UnityStats.instancedBatches,
+#else
                 batches = UnityStats.batches,
+#endif
                 setPassCalls = UnityStats.setPassCalls,
                 drawCalls = UnityStats.drawCalls,
                 dynamicBatchedDrawCalls = UnityStats.dynamicBatchedDrawCalls,
